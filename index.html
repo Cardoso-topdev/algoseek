@@ -1,172 +1,865 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Algoseek</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>algoseek | Delivery</title>
+  <meta name="description"
+    content="algoseek offers the most realistic intraday US market data that is especially useful for academia, hedge funds, banks and individuals worldwide">
+  <meta name="keywords"
+    content="data delivery method, cloud, AWS CLI, amazon S3, AWS infrastructure, FTP, restful API, flexible delivery">
+  <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="https://www.algoseek.com/css/main.min.css">
+  <link rel="stylesheet" type="text/css" href="https://www.algoseek.com/utils/one-time-dialog/one-time-dialog.min.css">
+  <style>
+    .integration {
+      color: #707070
+    }
+    
+    .integration *::before,
+    .integration *::after {
+      box-sizing: border-box; 
+    }
+
+    .integration *:focus {
+      outline: none; 
+    }
+
+    .integration a,
+    .integration button,
+    .integration .btn {
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease-in-out; 
+    }
+
+    .integration h1,
+    .integration h2,
+    .integration h3,
+    .integration h4,
+    .integration h5,
+    .integration h6 {
+      margin: 0;
+      color: #212529;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .integration h1,
+    .integration .heading-1 {
+      font-size: 48px;
+      font-weight: 600;
+    }
+
+    @media only screen and (max-width: 768px) {
+
+      .integration h1,
+      .integration .heading-1 {
+        font-size: 36px;
+      }
+    }
+
+    @media only screen and (max-width: 425px) {
+
+      .integration h1,
+      .integration .heading-1 {
+        font-size: 24px;
+      }
+    }
+
+    .integration h2,
+    .integration .heading-2 {
+      font-size: 48px;
+      font-weight: 400;
+    }
+
+    @media only screen and (max-width: 768px) {
+
+      .integration h2,
+      .integration .heading-2 {
+        font-size: 36px;
+      }
+    }
+
+    @media only screen and (max-width: 425px) {
+
+      .integration h2,
+      .integration .heading-2 {
+        font-size: 24px;
+      }
+    }
+
+    .integration h2 .text-primary,
+    .integration .heading-2 .text-primary {
+      font-weight: 600;
+    }
+
+    .integration p {
+      margin: 0;
+      font-family: 'Lato', sans-serif;
+      font-size: 24px;
+      line-height: 1.333;
+      font-weight: 300;
+    }
+
+    @media only screen and (max-width: 768px) {
+      .integration p {
+        font-size: 18px;
+      }
+    }
+
+    @media only screen and (max-width: 425px) {
+      .integration p {
+        font-size: 16px;
+      }
+    }
+
+    .integration .text-primary {
+      color: #59A745;
+    }
+
+    .integration .bg-primary {
+      background-color: #59A745;
+    }
+
+    .integration .text-secondary {
+      color: #363636;
+    }
+
+    .integration img {
+      max-width: 100%;
+    }
+
+    .integration .btn {
+      cursor: pointer;
+      display: block;
+      margin: 40px auto 0;
+      padding: 16px 41px;
+      border: none;
+      border-radius: 3px;
+      color: #fff;
+      background-color: #59A745;
+      font-family: 'Lato';
+      font-size: 16px;
+      font-weight: 400;
+      text-transform: uppercase;
+      transition: all 0.3s ease-out;
+    }
+
+    .integration .btn:hover {
+      background-color: #469006;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .integration .container {
+      margin: auto;
+      padding: 0 30px;
+      width: 100%;
+    }
+
+    @media only screen and (min-width: 1201px) {
+      .integration  .container {
+        max-width: 1380px;
+      }
+    }
+
+    .integration .banner {
+      padding: 200px 0 240px;
+      background-color: #F2F3F4;
+      background-image: url(./img/cheetah.svg);
+      background-repeat: no-repeat;
+      background-position: calc(50vw - 30px) bottom;
+    }
+
+    @media only screen and (max-width: 1200px) {
+      .integration .banner {
+        background-position: 55vw bottom;
+      }
+    }
+
+    @media only screen and (max-width: 768px) {
+      .integration .banner {
+        padding: 120px 0 360px;
+        background-position: 10vw bottom;
+      }
+    }
+
+    @media only screen and (max-width: 425px) {
+      .integration .banner {
+        padding: 80px 0 200px;
+        background-position: 2vw bottom;
+        background-size: 700px;
+      }
+    }
+
+    .integration .banner .content-holder {
+      width: 730px;
+      max-width: 70%;
+    }
+
+    @media only screen and (max-width: 768px) {
+      .integration .banner .content-holder {
+        max-width: 100%;
+      }
+    }
+
+    .integration .banner .content-holder .logo-items {
+      display: flex;
+      margin: 0 0 40px;
+    }
+
+    .integration .banner .content-holder .logo-item {
+      margin-right: 48px;
+    }
+
+    .integration .banner .content-holder .logo-item:last-child {
+      margin-right: 0;
+    }
+
+    .integration .banner h1 {
+      margin: 0 0 18px;
+    }
+
+    .integration .badges {
+      padding: 87px 0 47px;
+    }
+
+    .integration .badges h2 {
+      margin: 0 0 30px;
+      text-align: center;
+    }
+
+    .integration .badges .description {
+      margin: 0 auto 50px;
+      max-width: 880px;
+      text-align: center;
+    }
+
+    .integration .badges-items {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .integration .badges-item {
+      cursor: pointer;
+      margin: 0 0 50px;
+      padding: 0 20px;
+      width: calc(100% / 3);
+      transition: all 0.3s ease-out;
+    }
+
+    @media only screen and (max-width: 768px) {
+      .integration .badges-item {
+        width: 50%;
+        margin: 0 0 30px;
+        padding: 0 10px;
+      }
+    }
+
+    .integration .badges-item .icon-holder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 0 20px;
+      height: 80px;
+      font-size: 0;
+      text-align: center;
+    }
+
+    .integration .badges-item p {
+      margin: 0 auto;
+      max-width: 280px;
+      color: #212529;
+      font-size: 18px;
+      font-weight: 400;
+      text-align: center;
+      transition: all 0.3s ease-out;
+    }
+
+    @media only screen and (max-width: 768px) {
+      .integration .badges-item p {
+        font-size: 16px;
+      }
+    }
+
+    .integration .badges-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .integration .badges-item:hover p {
+      color: #59A745;
+    }
+
+    .integration .badges.condensed {
+      padding: 84px 0 75px;
+    }
+
+    .integration .badges.condensed .description {
+      margin-bottom: 90px;
+      max-width: 960px;
+    }
+
+    .integration .badges.condensed .badges-items {
+      flex-wrap: nowrap;
+    }
+
+    @media only screen and (max-width: 1200px) {
+      .integration .badges.condensed .description {
+        margin-bottom: 40px;
+      }
+      .integration .badges.condensed .badges-items {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+
+    .integration .badges.condensed .badges-item {
+      margin: 0 81px 50px 0;
+      width: auto;
+    }
+
+    @media only screen and (max-width: 1200px) {
+      .integration .badges.condensed .badges-item {
+        margin: 0 20px 30px;
+        width: auto;
+      }
+    }
+
+    @media only screen and (max-width: 768px) {
+      .integration .badges.condensed .badges-item {
+        width: calc(50% - 40px);
+      }
+    }
+
+    @media only screen and (max-width: 480px) {
+      .integration .badges.condensed .badges-item {
+        margin: 0 10px 30px;
+        width: calc(50% - 20px);
+      }
+    }
+
+    @media only screen and (max-width: 375px) {
+      .integration .badges.condensed .badges-item {
+        margin: 0 0 24px;
+        width: 100%;
+      }
+    }
+
+    .integration .badges.condensed .badges-item:last-child {
+      margin-right: 0;
+    }
+
+    @media only screen and (max-width: 1200px) {
+      .integration .badges.condensed .badges-item:last-child {
+        margin: 0 20px 0;
+      }
+    }
+
+    @media only screen and (max-width: 480px) {
+      .integration .badges.condensed .badges-item:last-child {
+        width: 100%;
+        margin: 0 10px 0;
+      }
+    }
+
+    .integration .badges.condensed .badges-item .icon-holder {
+      height: auto;
+    }
+
+    @media only screen and (max-width: 375px) {
+      .integration .badges.condensed .badges-item .icon-holder {
+        margin: 0 0 10px;
+      }
+    }
+
+    .integration .badges.condensed .badges-item p {
+      max-width: 350px;
+    }
+
+    .integration .img-text {
+      padding: 135px 0;
+      background-color: #F2F3F4;
+    }
+
+    @media only screen and (max-width: 640px) {
+      .integration .img-text {
+        padding: 80px 0;
+      }
+    }
+
+    .integration .img-text .container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .integration .img-text .text-holder {
+      width: 50%;
+      max-width: 580px;
+    }
+
+    @media only screen and (max-width: 640px) {
+      .integration .img-text .text-holder {
+        width: 100%;
+        margin: 0 0 40px;
+      }
+    }
+
+    .integration .img-text .text-holder h2 {
+      margin: 0 0 30px;
+    }
+
+    @media only screen and (max-width: 640px) {
+      .integration .img-text .text-holder h2 {
+        margin: 0 0 20px;
+      }
+    }
+
+    .integration .img-text .img-holder {
+      width: calc(50% - 100px);
+      font-size: 0;
+    }
+
+    @media only screen and (max-width: 640px) {
+      .integration .img-text .img-holder {
+        width: 100%;
+        text-align: center;
+      }
+
+      .integration .img-text .img-holder img {
+        max-width: 240px;
+        width: 100%;
+      }
+    }
+
+    .integration .img-text.dark {
+      color: #fff;
+      background-color: #101F25;
+    }
+
+    .integration .img-text.dark .text-holder {
+      max-width: 640px;
+    }
+
+    .integration .img-text.dark .text-holder h2 {
+      color: #fff;
+    }
+
+    .integration .contact-us {
+      padding: 85px 0 100px;
+    }
+
+    .integration .contact-us .container {
+      max-width: 870px;
+    }
+
+    .integration .contact-us h2 {
+      margin: 0 0 36px;
+      text-align: center;
+    }
+
+    .integration .contact-us p {
+      margin: 0 0 55px;
+      text-align: center;
+    }
+
+    .integration .contact-us form .form-row {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .integration .contact-us form .form-control {
+      margin: 0 0 50px;
+      width: calc(50% - 10px);
+    }
+
+    @media only screen and (max-width: 768px) {
+      .integration .contact-us form .form-control {
+        width: 100%;
+        margin: 0 0 24px;
+      }
+    }
+
+    .integration .contact-us form input[type=text] {
+      margin: 0;
+      padding: 0 0 14px;
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid #707070;
+      color: #212529;
+      font-family: 'Lato';
+      font-size: 16px;
+    }
+
+    @media only screen and (max-width: 768px) {
+      .integration .contact-us form input[type=text] {
+        font-size: 14px;
+        padding: 0 0 10px;
+      }
+    }
+
+    .integration .contact-us form input[type=text]::placeholder {
+      color: #212529;
+    }
+
+    .integration .contact-us form textarea {
+      margin: 0;
+      padding: 14px 12px;
+      width: 100%;
+      height: 140px;
+      resize: none;
+      border: 1px solid #707070;
+      color: #212529;
+      font-family: 'Lato';
+      font-size: 16px;
+      transition: all 0.3s ease-out;
+    }
+
+    .integration .contact-us form textarea::placeholder {
+      color: #212529;
+    }
+
+    .integration .contact-us form textarea:focus {
+      height: 200px;
+    }
+  </style>
 </head>
+
 <body>
-  <header>
-    <!-- Original Header goes here -->
-  </header>
-  <main>
-    <section class="banner">
-      <div class="container">
-        <div class="content-holder">
-          <div class="logo-items">
-            <div class="logo-item">
-              <img src="./assets/images/algoseek-logo.svg" alt="Algoseek">
-            </div>
-            <div class="logo-item">
-              <img src="./assets/images/lean-logo.svg" alt="Lean">
-            </div>
+  <div class="overflow-wrap">
+    <header class="header revealed">
+      <div class="header__top">
+        <div class="header__top-container">
+          <a href="./" class="header__logo"><img src="https://www.algoseek.com/img/logo.svg" alt=""></a>
+          <div class="header__menu">
+            <ul class="header__menu-wrapper">
+              <li>
+                <a href="./products.html" class="header__link dropdown">Products</a>
+                <div class="header__dropdown flex">
+                  <div>
+                    <h4>US MARKET DATA</h4>
+                    <a href="./products.html#us_equity_market_data">Equity</a>
+                    <a href="./products.html#us_etf_etn_market_data">ETF/ETN</a>
+                    <a href="./products.html#us_equity_index">Indices</a>
+                    <a href="./products.html#us_options_market_data">Equity Options</a>
+                    <a href="./products.html#us_futures_market_data">Futures</a>
+                    <a href="./products.html#us_future_options_data">Future Options</a>
+                    <a href="./coming-soon.html#cash_forex">Cash Forex</a>
+                    <a href="./coming-soon.html#crypto">Cryptocurrencies</a>
+                  </div>
+                  <div>
+                    <h4>REFERENCE DATA</h4>
+                    <a href="./products.html#us_equity_reference_data">Equity Security Master File</a>
+                    <a href="./products.html#us_futures_reference_data">Future Security Master File</a>
+                    <a href="./products.html#us_equity_reference_data">Equity Adjustment Factors</a>
+                    <a href="./coming-soon.html#full_corp_events">Full Corporate Events</a>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="./delivery.html" class="header__link dropdown">Delivery</a>
+                <div class="header__dropdown">
+                  <a href="./delivery.html#cloud">Cloud</a>
+                  <a href="./delivery.html#cli">AWS CLI</a>
+                  <a href="./delivery.html#sdk">AWS SDK</a>
+                  <a href="./delivery.html#excel">Excel</a>
+                  <a href="./delivery.html#ftp">FTP</a>
+                  <a href="./delivery.html#api">API</a>
+                  <a href="./data-drive.html">Browser</a>
+                </div>
+              </li>
+              <li>
+                <a href="./data-drive.html" class="header__link">Explore Data</a>
+              </li>
+              <li>
+                <a href="./why-algoseek.html" class="header__link">Why algoseek</a>
+              </li>
+              <li>
+                <a href="./company.html" class="header__link dropdown">Company</a>
+                <div class="header__dropdown">
+                  <a href="./company.html#about">About us</a>
+                  <a href="./company.html#vision">Our vision</a>
+                  <a href="./company.html#mission">Our mission</a>
+                  <a href="./company.html#team">Our team</a>
+                  <a href="./company.html#career">Career</a>
+                </div>
+              </li>
+              <li>
+                <a href="./order.html" class="header__link">Order</a>
+              </li>
+              <li>
+                <a href="./contact.html" class="header__link dropdown">Contact</a>
+                <div class="header__dropdown">
+                  <a href="./contact.html#sales">Sales</a>
+                  <a href="./contact.html#support">Support</a>
+                  <a href="./contact.html#partner">Partner</a>
+                </div>
+              </li>
+              <li>
+                <a class="header__link icon dropdown tel"></a>
+                <div class="header__dropdown icon">
+                  <a href="tel:+16465831832">+1 646 583 1832</a>
+                </div>
+              </li>
+              <li>
+                <a class="header__link icon dropdown mail"></a>
+                <div class="header__dropdown icon">
+                  <a href="mailto:sales@algoseek.com">sales@algoseek.com</a>
+                  <a href="mailto:support@algoseek.com">support@algoseek.com</a>
+                </div>
+              </li>
+            </ul>
+            <div class="close header__menu-close"><span></span></div>
           </div>
-          <h1>Algoseek &amp; Lean Integration</h1>
-          <p>LEAN is an open-source algorithmic trading platform designed for python and C# quantitative researchers to handle data plumbing and trade modeling. LEAN launched in 2014 and has 150+ contributors from around the world. QuantConnect maintains the project with a team of full-time engineers.</p>
+          <span class="header__menu-hamburger"></span>
         </div>
       </div>
-    </section>
-    <section class="badges">
-      <div class="container">
-        <h2><span class="text-primary">Complete</span> API</h2>
-        <p class="description">LEAN is an open-source algorithmic trading platform designed for python and C# quantitative researchers to handle data plumbing and trade modeling. LEAN launched in 2014 and has 150+ contributors from around the world. QuantConnect maintains the project with a team of full-time engineers.</p>
-        <div class="badges-items">
-          <div class="badges-item">
-            <div class="icon-holder">
-              <img src="./assets/images/icons/sync-icon.svg" alt="Synchronizing">
+    </header>
+    <div class="integration">
+      <section class="banner">
+        <div class="container">
+          <div class="content-holder">
+            <div class="logo-items">
+              <div class="logo-item">
+                <img src="./img/algoseek-logo.svg" alt="Algoseek">
+              </div>
+              <div class="logo-item">
+                <img src="./img/lean-logo.svg" alt="Lean">
+              </div>
             </div>
-            <p>Fetching and Synchronizing Data</p>
-          </div>
-          <div class="badges-item">
-            <div class="icon-holder">
-              <img src="./assets/images/icons/history-icon.svg" alt="Historic">
-            </div>
-            <p>Loading Historical Data</p>
-          </div>
-          <div class="badges-item">
-            <div class="icon-holder">
-              <img src="./assets/images/icons/events-icon.svg" alt="Scheduling">
-            </div>
-            <p>Scheduling Events Market Hours</p>
-          </div>
-          <div class="badges-item">
-            <div class="icon-holder">
-              <img src="./assets/images/icons/trading-icon.svg" alt="Trading">
-            </div>
-            <p>Complex Trading and Fill Modeling</p>
-          </div>
-          <div class="badges-item">
-            <div class="icon-holder">
-              <img src="./assets/images/icons/ml-icon.svg" alt="Machine Learning">
-            </div>
-            <p>Training Machine Learning Models</p>
-          </div>
-          <div class="badges-item">
-            <div class="icon-holder">
-              <img src="./assets/images/icons/link-icon.svg" alt="Link">
-            </div>
-            <p>Linking Securities of Alternative and Financial Data</p>
+            <h1>Algoseek &amp; Lean Integration</h1>
+            <p>LEAN is an open-source algorithmic trading platform designed for python and C# quantitative researchers
+              to handle data plumbing and trade modeling. LEAN launched in 2014 and has 150+ contributors from around
+              the world. QuantConnect maintains the project with a team of full-time engineers.</p>
           </div>
         </div>
-      </div>
-    </section>
-    <section class="img-text dark">
-      <div class="container">
-        <div class="text-holder">
-          <h2><span class="text-primary">Multi-Asset</span> Class</h2>
-          <p>LEAN fully models a wide range of asset types, including US Equities, US Equity Options, Futures, Future Options, FX, and Index Options. Asset classes are modeled in backtesting and live trading, with an “engineering first” design, seeking to model the asset class perfectly.<br><br>AlgoSeek data is available in the LEAN format, ready to be plugged in and used. Skip the traditionally tedious ETL(“Extract Transform Load”) operations and focus your time on high-value strategy research.</p>
-        </div>
-        <div class="img-holder">
-          <img src="./assets/images/gear.webp" srcset="./assets/images/gear_2x.webp" alt="Multi Asset">
-        </div>
-      </div>
-    </section>
-    <section class="badges condensed">
-      <div class="container">
-        <h2><span class="text-primary">Move from</span> Realistic <br>Research to Trading</h2>
-        <p class="description">Strategies developed in the LEAN engine are immediately tradable in live markets with no changes to the code. The platform allows researchers to do backtesting and jupyter research notebooks with high-fidelity L1 fills and asset by asset fill, slippage, and fee modeling. <br><br>The LEAN platform models the nuanced edge cases of actual market trading. LEAN lets you focus on your core signal and avoid rewriting data plumbing infrastructure. 
+      </section>
+      <section class="badges">
+        <div class="container">
+          <h2><span class="text-primary">Complete</span> API</h2>
+          <p class="description">LEAN is an open-source algorithmic trading platform designed for python and C#
+            quantitative researchers to handle data plumbing and trade modeling. LEAN launched in 2014 and has 150+
+            contributors from around the world. QuantConnect maintains the project with a team of full-time engineers.
           </p>
-        <div class="badges-items">
-          <div class="badges-item">
-            <div class="icon-holder">
-              <img src="./assets/images/icons/tick-icon.svg" alt="Tick">
+          <div class="badges-items">
+            <div class="badges-item">
+              <div class="icon-holder">
+                <img src="./img/icons/sync-icon.svg" alt="Synchronizing">
+              </div>
+              <p>Fetching and Synchronizing Data</p>
             </div>
-            <p>Partial Fills</p>
-          </div>
-          <div class="badges-item">
-            <div class="icon-holder">
-              <img src="./assets/images/icons/tick-icon.svg" alt="Tick">
+            <div class="badges-item">
+              <div class="icon-holder">
+                <img src="./img/icons/history-icon.svg" alt="Historic">
+              </div>
+              <p>Loading Historical Data</p>
             </div>
-            <p>Fee Models</p>
-          </div>
-          <div class="badges-item">
-            <div class="icon-holder">
-              <img src="./assets/images/icons/tick-icon.svg" alt="Tick">
+            <div class="badges-item">
+              <div class="icon-holder">
+                <img src="./img/icons/events-icon.svg" alt="Scheduling">
+              </div>
+              <p>Scheduling Events Market Hours</p>
             </div>
-            <p>Slippage Models</p>
-          </div>
-          <div class="badges-item">
-            <div class="icon-holder">
-              <img src="./assets/images/icons/tick-icon.svg" alt="Tick">
+            <div class="badges-item">
+              <div class="icon-holder">
+                <img src="./img/icons/trading-icon.svg" alt="Trading">
+              </div>
+              <p>Complex Trading and Fill Modeling</p>
             </div>
-            <p>Option Strategies <br>Margin Models</p>
-          </div>
-          <div class="badges-item">
-            <div class="icon-holder">
-              <img src="./assets/images/icons/tick-icon.svg" alt="Tick">
+            <div class="badges-item">
+              <div class="icon-holder">
+                <img src="./img/icons/ml-icon.svg" alt="Machine Learning">
+              </div>
+              <p>Training Machine Learning Models</p>
             </div>
-            <p>Margin Call Models, derivative contract expiry dates, and option exercise transfers.</p>
+            <div class="badges-item">
+              <div class="icon-holder">
+                <img src="./img/icons/link-icon.svg" alt="Link">
+              </div>
+              <p>Linking Securities of Alternative and Financial Data</p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-    <section class="img-text">
-      <div class="container">
-        <div class="text-holder">
-          <h2><span class="text-primary">On-Premise or in </span>QuantConnect Cloud</h2>
-          <p>Run your jupyter research simulations on your internal hardware or scale in QuantConnect cloud. QuantConnect data is sourced from AlgoSeek and maintained ready for use by your research teams.</p>
+      </section>
+      <section class="img-text dark">
+        <div class="container">
+          <div class="text-holder">
+            <h2><span class="text-primary">Multi-Asset</span> Class</h2>
+            <p>LEAN fully models a wide range of asset types, including US Equities, US Equity Options, Futures, Future
+              Options, FX, and Index Options. Asset classes are modeled in backtesting and live trading, with an
+              “engineering first” design, seeking to model the asset class perfectly.<br><br>AlgoSeek data is available
+              in the LEAN format, ready to be plugged in and used. Skip the traditionally tedious ETL(“Extract Transform
+              Load”) operations and focus your time on high-value strategy research.</p>
+          </div>
+          <div class="img-holder">
+            <img src="./img/gear.webp" srcset="./img/gear_2x.webp" alt="Multi Asset">
+          </div>
         </div>
-        <div class="img-holder">
-          <img src="./assets/images/graphic.webp" srcset="./assets/images/graphic_2x.webp" alt="Multi Asset">
+      </section>
+      <section class="badges condensed">
+        <div class="container">
+          <h2><span class="text-primary">Move from</span> Realistic <br>Research to Trading</h2>
+          <p class="description">Strategies developed in the LEAN engine are immediately tradable in live markets with
+            no changes to the code. The platform allows researchers to do backtesting and jupyter research notebooks
+            with high-fidelity L1 fills and asset by asset fill, slippage, and fee modeling. <br><br>The LEAN platform
+            models the nuanced edge cases of actual market trading. LEAN lets you focus on your core signal and avoid
+            rewriting data plumbing infrastructure.
+          </p>
+          <div class="badges-items">
+            <div class="badges-item">
+              <div class="icon-holder">
+                <img src="./img/icons/tick-icon.svg" alt="Tick">
+              </div>
+              <p>Partial Fills</p>
+            </div>
+            <div class="badges-item">
+              <div class="icon-holder">
+                <img src="./img/icons/tick-icon.svg" alt="Tick">
+              </div>
+              <p>Fee Models</p>
+            </div>
+            <div class="badges-item">
+              <div class="icon-holder">
+                <img src="./img/icons/tick-icon.svg" alt="Tick">
+              </div>
+              <p>Slippage Models</p>
+            </div>
+            <div class="badges-item">
+              <div class="icon-holder">
+                <img src="./img/icons/tick-icon.svg" alt="Tick">
+              </div>
+              <p>Option Strategies <br>Margin Models</p>
+            </div>
+            <div class="badges-item">
+              <div class="icon-holder">
+                <img src="./img/icons/tick-icon.svg" alt="Tick">
+              </div>
+              <p>Margin Call Models, derivative contract expiry dates, and option exercise transfers.</p>
+            </div>
+          </div>
         </div>
+      </section>
+      <section class="img-text">
+        <div class="container">
+          <div class="text-holder">
+            <h2><span class="text-primary">On-Premise or in </span>QuantConnect Cloud</h2>
+            <p>Run your jupyter research simulations on your internal hardware or scale in QuantConnect cloud.
+              QuantConnect data is sourced from AlgoSeek and maintained ready for use by your research teams.</p>
+          </div>
+          <div class="img-holder">
+            <img src="./img/graphic.webp" srcset="./img/graphic_2x.webp" alt="Multi Asset">
+          </div>
+        </div>
+      </section>
+      <section class="contact-us">
+        <div class="container">
+          <h2><span class="text-primary">Contact</span> Us</h2>
+          <p>Contact us today to learn how to source AlgoSeek data in a LEAN format to power your self-hosted LEAN.io
+            Algorithmic Trading Engine.</p>
+          <form class="contact-form" action="">
+            <div class="form-row">
+              <div class="form-control">
+                <input type="text" id="fname" name="fname" placeholder="First Name *">
+              </div>
+              <div class="form-control">
+                <input type="text" id="lname" name="lname" placeholder="Last Name *">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-control">
+                <input type="text" id="email" name="email" placeholder="Email Address *">
+              </div>
+              <div class="form-control">
+                <input type="text" id="organization" name="organization" placeholder="Organization *">
+              </div>
+            </div>
+            <div class="form-row">
+              <textarea name="message" id="message" placeholder="Message *"></textarea>
+            </div>
+            <input class="btn" type="submit" value="Submit">
+          </form>
+        </div>
+      </section>
+    </div>
+    <footer class="footer">
+      <div class="container flex">
+        <div class="footer__left">
+          <a href="/" class="footer__logo">
+            <img src="https://www.algoseek.com/img/logo-w.svg" alt="algoseek">
+          </a>
+          <div class="footer__list">
+            <a href="./privacy.html">Privacy & cookies</a>
+            <a href="./terms.html">Terms of use </a>
+            <!-- <a href="#">Trademarks </a> -->
+          </div>
+        </div>
+        <div class="footer__menu">
+          <div>
+            <div class="footer__list">
+              <h5 class="accent">Coming Soon</h5>
+              <a href="./coming-soon.html#cash_forex">Cash Forex</a>
+              <a href="./coming-soon.html#crypto">Cryptocurrencies</a>
+              <a href="./coming-soon.html#full_corp_events">Full Corporate Events</a>
+            </div>
+            <div class="footer__list">
+              <h5>What’s new</h5>
+              <a href="./products.html#us_equity_reference_data">Master file</a>
+              <a href="./ml4t-book-data.html">ML4T Data Download</a>
+            </div>
+          </div>
+          <div>
+            <div class="footer__list">
+              <h5>Products</h5>
+              <a href="./products.html#us_equity_market_data">Equity</a>
+              <a href="./products.html#us_etf_etn_market_data">ETF/ETN</a>
+              <a href="./products.html#us_equity_index">Equity Indices</a>
+              <a href="./products.html#us_options_market_data">Equity Options</a>
+              <a href="./products.html#us_futures_market_data">Futures</a>
+              <a href="./products.html#us_future_options_data">Future Options</a>
+              <a href="./pricing.html">Pricing</a>
+            </div>
+          </div>
+          <div>
+            <div class="footer__list">
+              <h5>Company</h5>
+              <a href="./company.html#about">About us</a>
+              <a href="./company.html#vision">Our vision</a>
+              <a href="./company.html#mission">Our mission</a>
+              <a href="./company.html#team">Our team</a>
+              <a href="./company.html#career">Career</a>
+              <a href="./partners.html">Partners</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer__copyright">algoseek 2020. All rights reserved</div>
       </div>
-    </section>
-    <section class="contact-us">
-      <div class="container">
-        <h2><span class="text-primary">Contact</span> Us</h2>
-        <p>Contact us today to learn how to source AlgoSeek data in a LEAN format to power your self-hosted LEAN.io Algorithmic Trading Engine.</p>
-        <form class="contact-form" action="">
-          <div class="form-row">
-            <div class="form-control">
-              <input type="text" id="fname" name="fname" placeholder="First Name *">
-            </div>
-            <div class="form-control">
-              <input type="text" id="lname" name="lname" placeholder="Last Name *">
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-control">
-              <input type="text" id="email" name="email" placeholder="Email Address *">
-            </div>
-            <div class="form-control">
-              <input type="text" id="organization" name="organization" placeholder="Organization *">
-            </div>
-          </div>
-          <div class="form-row">
-            <textarea name="message" id="message" placeholder="Message *"></textarea>
-          </div>
-          <input class="btn" type="submit" value="Submit">
-        </form>
-      </div>
-    </section>
-  </main>
-  <footer>
-    <!-- Original Footer goes here -->
-  </footer>
+    </footer>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://www.algoseek.com/js/scripts.min.js"></script>
+  <!-- <script src="js/delivery.js"></script> -->
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171770801-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-171770801-1');
+  </script>
+  <!-- Global site tag (gtag.js) - Google Ads: 945999322 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-945999322"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'AW-945999322');
+  </script>
+
 </body>
+
 </html>
