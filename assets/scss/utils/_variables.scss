@@ -1,0 +1,40 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+//Colors
+$primary: #59A745;
+$secondary: #363636;
+$text_color: #707070;
+$heading_color: #212529;
+$blue: #1275db;
+$dark_blue: #101F25;
+$green: #18ab3d;
+$dark_green: #034638;
+$red: #db0b33;
+$grey: #C8C8C8;
+$light_grey: #F2F3F4;
+$dark_grey: #363636;
+$yellow: #fcda31;
+$black: #000;
+$white: #fff;
+
+//Media query breakpoints
+$breakpoints: (
+  "phone-xsmall": 320px,
+  "phone-small": 375px,
+  "phone": 425px,
+  "phone-wide": 480px,
+  "phablet": 560px,
+  "tablet-small": 640px,
+  "tablet": 768px,
+  "tablet-wide": 992px,
+  "desktop-small": 1024px,
+  "desktop": 1200px,
+  "desktop-wide": 1439px,
+  "desktop-ultra": 1599px,
+);
+
+//Z-index
+$z-header: 10;
+$z-mobile-menu: 20;

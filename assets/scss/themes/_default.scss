@@ -1,0 +1,72 @@
+// Custom Color Classes
+.text-primary {
+  color: $primary;
+}
+.bg-primary {
+  background-color: $primary;
+}
+.text-secondary {
+  color: $secondary;
+}
+.bg-secondary {
+  background-color: $secondary;
+}
+.bg-red {
+  background-color: $red;
+}
+.bg-green {
+  background-color: $green;
+}
+.bg-blue {
+  background-color: $blue;
+}
+.bg-yellow {
+  background-color: $yellow;
+}
+
+// Custom Container
+.container {
+  margin: auto;
+  padding: 0 30px;
+  width: 100%;
+  @include mq("desktop") {
+    max-width: 1380px;
+  }
+}
+
+// Scrollbars
+.scrollbar-track {
+  width: 3px !important;
+  background: transparent !important;
+  .scrollbar-thumb {
+    width: 3px;
+    background: $blue;
+  }
+}
+
+// Form
+.form-row {
+  @include mq("tablet") {
+    display: flex;
+  }
+}
+
+.btn {
+  cursor: pointer;
+  display: block;
+  margin: 40px auto 0;
+  padding: 16px 41px;
+  border: none;
+  border-radius: 3px;
+  color: $white;
+  background-color: $primary;
+  font-family: 'Lato';
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: uppercase;
+  transition: all 0.3s ease-out;
+  &:hover {
+    background-color: #469006;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3)
+  }
+}
